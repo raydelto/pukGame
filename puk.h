@@ -22,7 +22,6 @@ vec pukk::CalcResponse(vec *normal)
 {
 	float t_dot;
 	float mod;
-	vec *v;
 	vec unit;
 	vec temp;
 	t_vector vector;
