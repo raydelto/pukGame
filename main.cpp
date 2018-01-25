@@ -146,7 +146,7 @@ void display(void)
 }
 
 
-int main(int argc, char argv[])
+int main(int argc, char** argv)
 {
 	int done;
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) 
