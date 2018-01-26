@@ -5,9 +5,9 @@
 	#include <OpenGL/gl.h>
 	#include <OpenGl/glu.h>
 	#include <GLUT/glut.h>
-	#else
-		#include <GL/gl.h>
-		#include <GL/glu.h>
+#else
+	#include <GL/gl.h>
+	#include <GL/glu.h>
 #endif
 
 typedef struct

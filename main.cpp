@@ -147,7 +147,7 @@ void display(void)
 
 int main(int argc, char **argv)
 {
-	int done;
+	bool done;
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		fprintf(stderr, "Unable to initialize SDL: %s\n", SDL_GetError());
@@ -170,9 +170,6 @@ int main(int argc, char **argv)
 	}
 
 	SDL_GL_CreateContext(window);
-
-
-
 #else
 		if (SDL_SetVideoMode(320, 200, 0, SDL_OPENGL) == NULL)
 		{
@@ -181,26 +178,25 @@ int main(int argc, char **argv)
 			exit(2);
 		}
 		SDL_WM_SetCaption("The Puk Game! v0.1b", NULL);
-
 #endif
 
 	Init();
-	done = 0;
+	done = false;
 	while (!done)
 	{
 		while (SDL_PollEvent(&event))
 		{
 			if (event.type == SDL_QUIT)
 			{
-				done = 1;
+				done = true;
 			}
 		}
 
 		if (event.type == SDL_KEYDOWN)
 		{
-			if (event.key.keysym.sym == SDLK_ESCAPE)
+			if (event.key.keysym.sym == SDLK_ESCAPE || event.key.keysym.sym == SDLK_q)
 			{
-				done = 1;
+				done = true;
 			}
 
 			if (event.key.keysym.sym == SDLK_UP)
