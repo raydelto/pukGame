@@ -174,7 +174,7 @@ int main(int argc, char **argv)
 
 
 #else
-		if (SDL_CreateWindow(320, 200, 0, SDL_OPENGL) == NULL)
+		if (SDL_SetVideoMode(320, 200, 0, SDL_OPENGL) == NULL)
 		{
 			fprintf(stderr, "Unable to create OpenGL screen: %s\n", SDL_GetError());
 			SDL_Quit();
@@ -183,8 +183,6 @@ int main(int argc, char **argv)
 		SDL_WM_SetCaption("The Puk Game! v0.1b", NULL);
 
 #endif
-
-
 
 	Init();
 	done = 0;
