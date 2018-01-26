@@ -1,10 +1,14 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
+#ifdef __APPLE__
+	#include <OpenGL/gl.h>
+	#include <OpenGl/glu.h>
+	#include <GLUT/glut.h>
+#else
+	#include <GL/gl.h>
+	#include <GL/glu.h>
+#endif
 
 class pukk
 {
@@ -26,12 +30,12 @@ vec pukk::CalcResponse(vec *normal)
 	vec temp;
 	t_vector vector;
 	unit = vector.UnitaryVector(&vel);
-	t_dot = vector.Dot(&unit, normal);	
+	t_dot = vector.Dot(&unit, normal);
 	temp = vector.MultiplyVectorScalar(2 * t_dot, normal);
 	temp = vector.Substract(&unit, &temp);
 	mod = vector.Modulus(&vel);
 	temp = vector.MultiplyVectorScalar(mod, &temp);
-		
+
 	return temp;
 }
 

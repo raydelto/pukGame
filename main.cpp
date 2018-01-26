@@ -5,10 +5,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
+#ifdef __APPLE__
+	#include <OpenGL/gl.h>
+	#include <OpenGl/glu.h>
+	#include <GLUT/glut.h>
+#else
+	#include <GL/gl.h>
+	#include <GL/glu.h>
+#endif
+
+#ifdef __APPLE__
+	#include <SDL2/SDL.h>
+	#include <SDL2/SDL_opengl.h>
+#else
+	#include <SDL/SDL.h>
+	#include <SDL/SDL_opengl.h>
+#endif
 
 pukk puka;
 wrl world;
@@ -18,6 +30,10 @@ vec fVect;
 vec normal;
 SDL_Event event;
 int go;
+
+#ifdef __APPLE__
+	SDL_Window *window;
+#endif
 
 void Init(void)
 {
@@ -118,8 +134,12 @@ void display(void)
 
 	puka.Render();
 	LPlayer.Render();
+	#ifdef __APPLE__
+		SDL_GL_SwapWindow(window);
+	#else
+		SDL_GL_SwapBuffers();
+	#endif
 
-	SDL_GL_SwapBuffers();
 }
 
 int main(int argc, char **argv)
@@ -130,15 +150,38 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Unable to initialize SDL: %s\n", SDL_GetError());
 		exit(1);
 	}
-
-	if (SDL_SetVideoMode(320, 200, 0, SDL_OPENGL) == NULL)
+#ifdef __APPLE__
+	SDL_Init(SDL_INIT_VIDEO);
+	window = SDL_CreateWindow(
+		"The Puk Game! v0.1b",
+		SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_UNDEFINED,
+		320,
+		200,
+		SDL_WINDOW_OPENGL);
+	if ( !window )
 	{
 		fprintf(stderr, "Unable to create OpenGL screen: %s\n", SDL_GetError());
 		SDL_Quit();
 		exit(2);
 	}
 
-	SDL_WM_SetCaption("The Puk Game! v0.1b", NULL);
+	SDL_GL_CreateContext(window);
+
+
+
+#else
+		if (SDL_CreateWindow(320, 200, 0, SDL_OPENGL) == NULL)
+		{
+			fprintf(stderr, "Unable to create OpenGL screen: %s\n", SDL_GetError());
+			SDL_Quit();
+			exit(2);
+		}
+		SDL_WM_SetCaption("The Puk Game! v0.1b", NULL);
+
+#endif
+
+
 
 	Init();
 	done = 0;

@@ -1,10 +1,14 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
+#ifdef __APPLE__
+	#include <OpenGL/gl.h>
+	#include <OpenGl/glu.h>
+	#include <GLUT/glut.h>
+	#else
+		#include <GL/gl.h>
+		#include <GL/glu.h>
+#endif
 
 typedef struct
 {
@@ -19,8 +23,8 @@ class t_vector
 		vec Substract(vec *u, vec *v);
 		vec UnitaryVector(vec *v);
 		vec MultiplyVectorScalar(float s, vec *v);
-};		
-		
+};
+
 float t_vector::Modulus(vec *v)
 {
 	float length;
@@ -38,7 +42,7 @@ float t_vector::Dot(vec *u, vec *v)
 vec t_vector::MultiplyVectorScalar(float s, vec *v)
 {
 	vec vect;
-	vect.x = s * v->x; 
+	vect.x = s * v->x;
 	vect.z = s * v->z;
 	return vect;
 }
@@ -53,7 +57,7 @@ vec t_vector::Substract(vec *u, vec *v)
 
 vec t_vector::UnitaryVector(vec *v)
 {
-	vec vect;	
+	vec vect;
 	float length;
 	length = Modulus(v);
 	vect.x = v->x / length;

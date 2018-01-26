@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
+
+#ifdef __APPLE__
+	#include <OpenGL/gl.h>
+	#include <OpenGl/glu.h>
+	#include <GLUT/glut.h>
+#else
+	#include <GL/gl.h>
+	#include <GL/glu.h>
+#endif
 
 class CPlayer
 {
@@ -25,5 +30,5 @@ void CPlayer::Render(void)
 			glVertex3f(1.0, 1.0, -5.0);
 			glVertex3f(1.0, -1.0, -5.0);
 		glEnd();
-	glPopMatrix();	
+	glPopMatrix();
 }
