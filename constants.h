@@ -1,0 +1,2 @@
+#define VIEW_ANGLE 40.0
+#define DEGREE_TO_RADIANS 0.0174533

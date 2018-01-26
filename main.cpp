@@ -1,3 +1,4 @@
+#include "constants.h"
 #include "vector.h"
 #include "puk.h"
 #include "world.h"
@@ -6,21 +7,19 @@
 #include <stdlib.h>
 #include <unistd.h>
 #ifdef __APPLE__
+	#include <SDL2/SDL.h>
+	#include <SDL2/SDL_opengl.h>
 	#include <OpenGL/gl.h>
 	#include <OpenGl/glu.h>
 	#include <GLUT/glut.h>
+	#include <GLKit/GLKMatrix4.h>
 #else
 	#include <GL/gl.h>
 	#include <GL/glu.h>
-#endif
-
-#ifdef __APPLE__
-	#include <SDL2/SDL.h>
-	#include <SDL2/SDL_opengl.h>
-#else
 	#include <SDL/SDL.h>
 	#include <SDL/SDL_opengl.h>
 #endif
+
 
 pukk puka;
 wrl world;
@@ -58,7 +57,11 @@ void Init(void)
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(40.0, 1.0, 2.0, 20000);
+	#ifdef __APPLE__
+		glMultMatrixf(GLKMatrix4MakePerspective(VIEW_ANGLE * DEGREE_TO_RADIANS, 1.0, 2.0, 20000).m);
+	#else
+		gluPerspective(VIEW_ANGLE, 1.0, 2.0, 20000);
+	#endif
 
 	glShadeModel(GL_SMOOTH);
 	glEnable(GL_LIGHTING);
