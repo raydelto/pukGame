@@ -1,3 +1,5 @@
-*.exe
-*.dll
+**.exe
+**.dll
 pukGame
+**.o
+**.gch

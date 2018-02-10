@@ -1,6 +1,10 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "vector.h"
 
 #ifdef __APPLE__
 	#include <OpenGL/gl.h>
@@ -18,17 +22,4 @@ class CPlayer
 		vec vel;
 		void Render(void);
 };
-
-void CPlayer::Render(void)
-{
-	glColor3f(0.0, 0.0, 1.0);
-	glPushMatrix();
-		glTranslatef(pos.x, pos.z, 0.0);
-		glBegin(GL_QUADS);
-			glVertex3f(-1.0, -1.0, -5.0);
-			glVertex3f(-1.0, 1.0, -5.0);
-			glVertex3f(1.0, 1.0, -5.0);
-			glVertex3f(1.0, -1.0, -5.0);
-		glEnd();
-	glPopMatrix();
-}
+#endif

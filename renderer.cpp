@@ -1,4 +1,3 @@
-#include "constants.h"
 #include "vector.h"
 #include "puk.h"
 #include "world.h"
@@ -6,6 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+#include "constants.cpp"
 #ifdef __APPLE__
 	#include <SDL2/SDL.h>
 	#include <SDL2/SDL_opengl.h>
@@ -222,4 +223,9 @@ int mainLoop(){
 		display();
 	}
 	return 0;
+}
+
+int main(int argc, char **argv)
+{
+	return mainLoop();
 }
