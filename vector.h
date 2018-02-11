@@ -21,10 +21,10 @@ typedef struct
 class t_vector
 {
 	public:
-		float Modulus(vec *v);
-		float Dot(vec *u, vec *v);
-		vec Substract(vec *u, vec *v);
-		vec UnitaryVector(vec *v);
-		vec MultiplyVectorScalar(float s, vec *v);
+		float* Modulus(vec *v);
+		float* Dot(vec *u, vec *v);
+		vec* Substract(vec *u, vec *v);
+		vec* UnitaryVector(vec *v);
+		vec* MultiplyVectorScalar(float s, vec *v);
 };
 #endif

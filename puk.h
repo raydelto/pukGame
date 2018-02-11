@@ -22,7 +22,7 @@ class pukk
 		vec pos;
 		vec frict;
 		float radius;
-		vec CalcResponse(vec *normal);
+		vec* CalcResponse(vec *normal);
 		void Render(void);
 
 };

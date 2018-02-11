@@ -1,10 +1,7 @@
-#include <iostream>
+#include "Renderer.h"
 
-#include "renderer.cpp"
-
-using namespace std;
 int main(int argc, char **argv)
 {
-	cout << "Hola y adios" << endl;
-	return mainLoop();
+	Renderer* renderer = new Renderer();
+	return renderer -> MainLoop();
 }

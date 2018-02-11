@@ -6,21 +6,21 @@
  */
 #include "puk.h"
 
-vec pukk::CalcResponse(vec *normal)
+vec* pukk::CalcResponse(vec *normal)
 {
 	float t_dot;
 	float mod;
 	vec unit;
-	vec temp;
+	vec* response = new vec();
 	t_vector vector;
-	unit = vector.UnitaryVector(&vel);
-	t_dot = vector.Dot(&unit, normal);
-	temp = vector.MultiplyVectorScalar(2 * t_dot, normal);
-	temp = vector.Substract(&unit, &temp);
-	mod = vector.Modulus(&vel);
-	temp = vector.MultiplyVectorScalar(mod, &temp);
+	unit = *vector.UnitaryVector(&vel);
+	t_dot = *vector.Dot(&unit, normal);
+	response = vector.MultiplyVectorScalar(2 * t_dot, normal);
+	response = vector.Substract(&unit, response);
+	mod = *vector.Modulus(&vel);
+	response = vector.MultiplyVectorScalar(mod, response);
 
-	return temp;
+	return response;
 }
 
 void pukk::Render(void)

@@ -1,16 +1,18 @@
 SRC=constants.cpp \
 player.cpp \
 puk.cpp \
-renderer.cpp \
+Renderer.cpp \
 vector.cpp \
-world.cpp 
+world.cpp \
+main.cpp
  
 OBJ=constants.o \
 player.o \
 puk.o \
-renderer.o \
+Renderer.o \
 vector.o \
-world.o 
+world.o \
+main.o
 
 PROG = pukGame
 
