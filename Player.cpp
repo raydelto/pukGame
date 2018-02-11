@@ -5,7 +5,7 @@
  *      Author: raydelto
  */
 
-#include "player.h"
+#include "Player.h"
 
 void CPlayer::Render(void)
 {

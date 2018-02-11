@@ -4,7 +4,7 @@
  *  Created on: Feb 10, 2018
  *      Author: raydelto
  */
-#include "world.h"
+#include "World.h"
 
 void wrl::Render(void)
 {

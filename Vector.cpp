@@ -4,7 +4,7 @@
  *  Created on: Feb 10, 2018
  *      Author: raydelto
  */
-#include "vector.h"
+#include "Vector.h"
 
 float* t_vector::Modulus(vec *v)
 {

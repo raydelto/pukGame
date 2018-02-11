@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "vector.h"
+
+#include "Vector.h"
 
 #ifdef __APPLE__
 	#include <OpenGL/gl.h>

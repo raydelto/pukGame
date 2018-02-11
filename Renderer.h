@@ -7,14 +7,14 @@
 
 #ifndef RENDERER_H
 #define RENDERER_H
-#include "vector.h"
-#include "puk.h"
-#include "world.h"
-#include "player.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "constants.cpp"
+#include "Player.h"
+#include "Puk.h"
+#include "Vector.h"
+#include "World.h"
 #ifdef __APPLE__
 	#include <SDL2/SDL.h>
 	#include <SDL2/SDL_opengl.h>
