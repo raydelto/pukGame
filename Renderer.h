@@ -42,6 +42,7 @@ private:
 
 public:
 	Renderer();
+	virtual ~Renderer();
 	void Init();
 	void Display();
 	int MainLoop();

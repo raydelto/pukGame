@@ -124,7 +124,19 @@ Renderer::Renderer()
 	_LPlayer = new CPlayer();
 	_fVect = new vec();
 	_normal = new vec();
+#ifdef __APPLE__
+	_window = NULL;
+#endif
 
+}
+
+Renderer::~Renderer()
+{
+	delete _puk;
+	delete _world;
+	delete _LPlayer;
+	delete _fVect;
+	delete _normal;
 }
 
 int Renderer::MainLoop()
