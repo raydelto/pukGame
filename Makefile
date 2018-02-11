@@ -29,9 +29,6 @@ else
 	endif
 endif
 
-$(PROG): $(OBJ)
-	g++ $(OBJ) -o $(PROG) $(FLAGS)	
-
 all:
 	g++ -c $(SRC) -Wall
 	g++ $(OBJ) -o $(PROG) $(FLAGS) -Wall	
