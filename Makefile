@@ -33,5 +33,5 @@ $(PROG): $(OBJ)
 	g++ $(OBJ) -o $(PROG) $(FLAGS)	
 
 all:
-	g++ -c $(SRC)
-	g++ $(OBJ) -o $(PROG) $(FLAGS)	
+	g++ -c $(SRC) -Wall
+	g++ $(OBJ) -o $(PROG) $(FLAGS) -Wall	
