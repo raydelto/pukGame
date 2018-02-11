@@ -6,13 +6,13 @@
  */
 #include "Puk.h"
 
-vec* pukk::CalcResponse(vec *normal)
+vector* Puk::CalcResponse(vector *normal)
 {
 	float t_dot;
 	float mod;
-	vec unit;
-	vec* response = new vec();
-	t_vector vector;
+	vector unit;
+	vector* response = new vector();
+	Vector vector;
 	unit = *vector.UnitaryVector(&vel);
 	t_dot = *vector.Dot(&unit, normal);
 	response = vector.MultiplyVectorScalar(2 * t_dot, normal);
@@ -23,7 +23,7 @@ vec* pukk::CalcResponse(vec *normal)
 	return response;
 }
 
-void pukk::Render(void)
+void Puk::Render(void)
 {
 	glColor3f(1.0, 0.0, 0.0);
 	glPushMatrix();

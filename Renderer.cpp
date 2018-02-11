@@ -119,11 +119,11 @@ void Renderer::Display()
 
 Renderer::Renderer()
 {
-	_puk = new pukk();
-	_world = new wrl();
-	_LPlayer = new CPlayer();
-	_fVect = new vec();
-	_normal = new vec();
+	_puk = new Puk();
+	_world = new World();
+	_LPlayer = new Player();
+	_fVect = new vector();
+	_normal = new vector();
 #ifdef __APPLE__
 	_window = NULL;
 #endif

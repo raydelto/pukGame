@@ -12,7 +12,7 @@
 	#include <GL/glu.h>
 #endif
 
-class wrl
+class World
 {
 	public:
 		void Render(void);

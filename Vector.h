@@ -16,15 +16,15 @@
 typedef struct
 {
 	float x, z;
-}vec;
+} vector;
 
-class t_vector
+class Vector
 {
 	public:
-		float* Modulus(vec *v);
-		float* Dot(vec *u, vec *v);
-		vec* Substract(vec *u, vec *v);
-		vec* UnitaryVector(vec *v);
-		vec* MultiplyVectorScalar(float s, vec *v);
+		float* Modulus(vector *v);
+		float* Dot(vector *u, vector *v);
+		vector* Substract(vector *u, vector *v);
+		vector* UnitaryVector(vector *v);
+		vector* MultiplyVectorScalar(float s, vector *v);
 };
 #endif

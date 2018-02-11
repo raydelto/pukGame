@@ -31,11 +31,11 @@
 
 class Renderer {
 private:
-	pukk* _puk;
-	wrl* _world;
-	CPlayer* _LPlayer;
-	vec* _fVect;
-	vec* _normal;
+	Puk* _puk;
+	World* _world;
+	Player* _LPlayer;
+	vector* _fVect;
+	vector* _normal;
 #ifdef __APPLE__
 	SDL_Window* _window;
 #endif

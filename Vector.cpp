@@ -6,39 +6,39 @@
  */
 #include "Vector.h"
 
-float* t_vector::Modulus(vec *v)
+float* Vector::Modulus(vector *v)
 {
 	float* length = new float;
 	*length = sqrt((v->x * v->x) + (v->z * v->z));
 	return length;
 }
 
-float* t_vector::Dot(vec *u, vec *v)
+float* Vector::Dot(vector *u, vector *v)
 {
 	float* dot = new float;
 	*dot = (u->x * v->x) + (u->z * v->z);
 	return dot;
 }
 
-vec* t_vector::MultiplyVectorScalar(float s, vec *v)
+vector* Vector::MultiplyVectorScalar(float s, vector *v)
 {
-	vec* vect = new vec;
+	vector* vect = new vector;
 	vect -> x = s * v->x;
 	vect -> z = s * v->z;
 	return vect;
 }
 
-vec* t_vector::Substract(vec *u, vec *v)
+vector* Vector::Substract(vector *u, vector *v)
 {
-	vec* vect = new vec;
+	vector* vect = new vector;
 	vect -> x = u->x - v->x;
 	vect-> z = u->z - v->z;
 	return vect;
 }
 
-vec* t_vector::UnitaryVector(vec *v)
+vector* Vector::UnitaryVector(vector *v)
 {
-	vec* vect = new vec;
+	vector* vect = new vector;
 	float* length = new float;
 	length = Modulus(v);
 	vect -> x = v->x / *length;

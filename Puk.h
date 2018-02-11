@@ -16,14 +16,14 @@
 	#include <GL/glu.h>
 #endif
 
-class pukk
+class Puk
 {
 	public:
-		vec vel;
-		vec pos;
-		vec frict;
+		vector vel;
+		vector pos;
+		vector frict;
 		float radius;
-		vec* CalcResponse(vec *normal);
+		vector* CalcResponse(vector *normal);
 		void Render(void);
 
 };

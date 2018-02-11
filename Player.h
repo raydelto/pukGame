@@ -16,11 +16,11 @@
 	#include <GL/glu.h>
 #endif
 
-class CPlayer
+class Player
 {
 	public:
-		vec pos;
-		vec vel;
+		vector pos;
+		vector vel;
 		void Render(void);
 };
 #endif

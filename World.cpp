@@ -6,7 +6,7 @@
  */
 #include "World.h"
 
-void wrl::Render(void)
+void World::Render(void)
 {
 	glColor3f(1.0, 1.0, 1.0);
 	glPushMatrix();

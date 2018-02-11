@@ -7,7 +7,7 @@
 
 #include "Player.h"
 
-void CPlayer::Render(void)
+void Player::Render(void)
 {
 	glColor3f(0.0, 0.0, 1.0);
 	glPushMatrix();
