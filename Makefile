@@ -4,6 +4,7 @@ Puk.cpp \
 Renderer.cpp \
 Vector.cpp \
 World.cpp \
+glad.c \
 main.cpp
  
 OBJ=constants.o \
@@ -12,23 +13,31 @@ Puk.o \
 Renderer.o \
 Vector.o \
 World.o \
+glad.o \
 main.o
 
 PROG = pukGame
 
 FLAGS 				:=
 ifeq ($(OS),Windows_NT)
-	FLAGS = -L/usr/X11R6/lib -lGL -lGLU -lSDL -lm
+	LIBS = -L/usr/X11R6/lib -lGL -lGLU -lSDL -lm
 else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Linux)
-		FLAGS = -lSDL -lGL -lGLU
+		LIBS = -lSDL -lGL -lGLU
 	endif
 	ifeq ($(UNAME_S),Darwin)
-		FLAGS = -L/System/Library/Frameworks -framework GLUT -framework OpenGL -I/Library/Frameworks/SDL2.framework/Headers -framework SDL2
+		LIBS= -L/opt/homebrew/opt/sdl2/lib \
+			-lsdl2 -framework OpenGL
+
+		INCLUDES=-I/opt/homebrew/opt/sdl2/include \
+				-I./include \
+				-I/usr/local/include
 	endif
 endif
 
+WARNINGS = -w
+
 all:
-	g++ -c $(SRC) -Wall
-	g++ $(OBJ) -o $(PROG) $(FLAGS) -Wall	
+	clang++ -c -g $(SRC) $(INCLUDES) $(WARNINGS)
+	clang++ -g $(OBJ) -o $(PROG) $(LIBS) $(INCLUDES) $(WARNINGS)

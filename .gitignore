@@ -3,3 +3,5 @@
 pukGame
 **.o
 **.gch
+.DS_Store
+.vscode

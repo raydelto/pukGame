@@ -4,6 +4,11 @@
  *  Created on: Feb 11, 2018
  *      Author: raydelto
  */
+#ifdef __APPLE__
+#include <glad/glad.h>
+#include <SDL2/SDL.h>
+#include <iostream>
+#endif
 
 #include "Renderer.h"
 
@@ -18,6 +23,15 @@ void Renderer::Init()
 	float diffuselight[] = {0.5, 0.5, 0.5, 0.0};
 	float specular[] = {0.8, 0.8, 0.8, 0.0};
 	float LightPos[] = {0.0, 0.0, 0.0};
+
+#ifdef __APPLE__
+	// glad: load all OpenGL function pointers
+	// ---------------------------------------
+	if (!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress))
+	{
+		std::cout << "Failed to initialize GLAD" << std::endl;
+	}
+#endif	
 
 	vend = (GLubyte *)glGetString(GL_VENDOR);
 	rend = (GLubyte *)glGetString(GL_RENDERER);
